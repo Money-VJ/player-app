@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Player from "./components/Player";
 import SongList from "./components/SongList";
 
-const Page: React.FC = () => {
+const Page = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTrack, setCurrentTrack] = useState<string | null>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const [currentTrack, setCurrentTrack] = useState(null);
+  const audioRef = useRef(null);
 
   const tracks = [
     {
@@ -26,47 +25,11 @@ const Page: React.FC = () => {
       title: "Track 3",
       artist: "Artist 3",
       avatarUrl: "https://via.placeholder.com/48",
-      audioUrl: "/audio/track2.mp3",
-    },
-    {
-      title: "Track 4",
-      artist: "Artist 4",
-      avatarUrl: "https://via.placeholder.com/48",
-      audioUrl: "/audio/track2.mp3",
-    },
-    {
-      title: "Track 5",
-      artist: "Artist 5",
-      avatarUrl: "https://via.placeholder.com/48",
-      audioUrl: "/audio/track2.mp3",
-    },
-    {
-      title: "Track 6",
-      artist: "Artist 6",
-      avatarUrl: "https://via.placeholder.com/48",
-      audioUrl: "/audio/track2.mp3",
-    },
-    {
-      title: "Track 7",
-      artist: "Artist 7",
-      avatarUrl: "https://via.placeholder.com/48",
-      audioUrl: "/audio/track2.mp3",
-    },
-    {
-      title: "Track 8",
-      artist: "Artist 8",
-      avatarUrl: "https://via.placeholder.com/48",
-      audioUrl: "/audio/track2.mp3",
-    },
-    {
-      title: "Track 9",
-      artist: "Artist 9",
-      avatarUrl: "https://via.placeholder.com/48",
-      audioUrl: "/audio/track2.mp3",
+      audioUrl: "/audio/track3.mp3",
     },
   ];
 
-  const togglePlay = (trackUrl: string) => {
+  const togglePlay = (trackUrl) => {
     if (!audioRef.current) return;
 
     if (currentTrack !== trackUrl) {
@@ -96,3 +59,5 @@ const Page: React.FC = () => {
     </div>
   );
 };
+
+export default Page;
